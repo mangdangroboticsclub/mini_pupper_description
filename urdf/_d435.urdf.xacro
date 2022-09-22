@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!--
-License: Apache 2.0. See LICENSE file in root directory.
+License:Apache 2.0. See LICENSE file in root directory.
 Copyright(c) 2017 Intel Corporation. All Rights Reserved
 
 This is the URDF model for the Intel RealSense 430 camera, in its
@@ -62,7 +62,7 @@ aluminum peripherial evaluation case.
           <!-- the mesh origin is at front plate in between the two infrared camera axes -->
           <origin xyz="${d435_zero_depth_to_glass + d435_glass_to_front} ${-d435_cam_depth_py} 0" rpy="${M_PI/2} 0 ${M_PI/2}"/>
           <geometry>
-            <mesh filename="package://mini_pupper_description/meshes/d435.dae" />
+            <mesh filename="file://$(find mini_pupper_description)/meshes/d435.dae" />
           </geometry>
         </xacro:if>
         <xacro:unless value="${use_mesh}">

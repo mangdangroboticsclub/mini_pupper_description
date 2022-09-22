@@ -1,12 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+
+     Commit Version:1.6.0-1-g15f4949  Build Version:1.6.7594.29634
+     
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="mini_pupper_description" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="mini-pupper" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find mini_pupper_description)/urdf/_d435.urdf.xacro" />
-  <link
-    name="base_link">
+  <link name="base_link">
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find mini_pupper_description)/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find mini_pupper_description)/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="base_inertia">    
     <inertial>
       <origin
         xyz="0.00660426498064391 8.26976427410632E-06 0.0200623332889016"
@@ -21,30 +46,12 @@
         iyz="2.90091309171363E-09"
         izz="0.00010929561287651" />
     </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://mini_pupper_description/meshes/base_link.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.2 0.2 0.2 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://mini_pupper_description/meshes/base_link.STL" />
-      </geometry>
-    </collision>
-  </link>
+  </link> 
+  <joint name="base_link_to_base_inertia" type="fixed">    
+      <parent link="base_link"/>    
+      <child link="base_inertia"/>    
+      <origin rpy="0 0 0" xyz="0 0 0"/>  
+  </joint>  
   <link
     name="yellow_plate">
     <inertial>
@@ -67,7 +74,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/yellow_plate.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/yellow_plate.STL" />
       </geometry>
       <material
         name="">
@@ -81,7 +88,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/yellow_plate.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/yellow_plate.STL" />
       </geometry>
     </collision>
   </link>
@@ -120,7 +127,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lidar.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lidar.STL" />
       </geometry>
       <material
         name="">
@@ -134,7 +141,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lidar.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lidar.STL" />
       </geometry>
     </collision>
   </link>
@@ -173,7 +180,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lf1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lf1.STL" />
       </geometry>
       <material
         name="">
@@ -187,7 +194,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lf1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lf1.STL" />
       </geometry>
     </collision>
   </link>
@@ -231,7 +238,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lpf1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lpf1.STL" />
       </geometry>
       <material
         name="">
@@ -245,7 +252,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lpf1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lpf1.STL" />
       </geometry>
     </collision>
   </link>
@@ -284,7 +291,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lf2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lf2.STL" />
       </geometry>
       <material
         name="">
@@ -298,7 +305,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lf2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lf2.STL" />
       </geometry>
     </collision>
   </link>
@@ -342,7 +349,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lpf2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lpf2.STL" />
       </geometry>
       <material
         name="">
@@ -356,7 +363,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lpf2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lpf2.STL" />
       </geometry>
     </collision>
   </link>
@@ -395,7 +402,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lf3.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lf3.STL" />
       </geometry>
       <material
         name="">
@@ -409,7 +416,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lf3.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lf3.STL" />
       </geometry>
     </collision>
   </link>
@@ -453,7 +460,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lffoot.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lffoot.STL" />
       </geometry>
       <material
         name="">
@@ -467,7 +474,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lffoot.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lffoot.STL" />
       </geometry>
     </collision>
   </link>
@@ -506,7 +513,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rf1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rf1.STL" />
       </geometry>
       <material
         name="">
@@ -520,7 +527,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rf1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rf1.STL" />
       </geometry>
     </collision>
   </link>
@@ -564,7 +571,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rpf1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rpf1.STL" />
       </geometry>
       <material
         name="">
@@ -578,7 +585,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rpf1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rpf1.STL" />
       </geometry>
     </collision>
   </link>
@@ -617,7 +624,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rf2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rf2.STL" />
       </geometry>
       <material
         name="">
@@ -631,7 +638,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rf2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rf2.STL" />
       </geometry>
     </collision>
   </link>
@@ -675,7 +682,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rpf2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rpf2.STL" />
       </geometry>
       <material
         name="">
@@ -689,7 +696,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rpf2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rpf2.STL" />
       </geometry>
     </collision>
   </link>
@@ -728,7 +735,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rf3.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rf3.STL" />
       </geometry>
       <material
         name="">
@@ -742,7 +749,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rf3.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rf3.STL" />
       </geometry>
     </collision>
   </link>
@@ -786,7 +793,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rffoot.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rffoot.STL" />
       </geometry>
       <material
         name="">
@@ -800,7 +807,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rffoot.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rffoot.STL" />
       </geometry>
     </collision>
   </link>
@@ -839,7 +846,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lb1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lb1.STL" />
       </geometry>
       <material
         name="">
@@ -853,7 +860,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lb1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lb1.STL" />
       </geometry>
     </collision>
   </link>
@@ -897,7 +904,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lpb1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lpb1.STL" />
       </geometry>
       <material
         name="">
@@ -911,7 +918,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lpb1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lpb1.STL" />
       </geometry>
     </collision>
   </link>
@@ -950,7 +957,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lb2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lb2.STL" />
       </geometry>
       <material
         name="">
@@ -964,7 +971,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lb2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lb2.STL" />
       </geometry>
     </collision>
   </link>
@@ -1008,7 +1015,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lpb2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lpb2.STL" />
       </geometry>
       <material
         name="">
@@ -1022,7 +1029,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lpb2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lpb2.STL" />
       </geometry>
     </collision>
   </link>
@@ -1061,7 +1068,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lb3.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lb3.STL" />
       </geometry>
       <material
         name="">
@@ -1075,7 +1082,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lb3.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lb3.STL" />
       </geometry>
     </collision>
   </link>
@@ -1119,7 +1126,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lbfoot.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lbfoot.STL" />
       </geometry>
       <material
         name="">
@@ -1133,7 +1140,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/lbfoot.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/lbfoot.STL" />
       </geometry>
     </collision>
   </link>
@@ -1172,7 +1179,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rb1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rb1.STL" />
       </geometry>
       <material
         name="">
@@ -1186,7 +1193,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rb1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rb1.STL" />
       </geometry>
     </collision>
   </link>
@@ -1230,7 +1237,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rpb1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rpb1.STL" />
       </geometry>
       <material
         name="">
@@ -1244,7 +1251,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rpb1.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rpb1.STL" />
       </geometry>
     </collision>
   </link>
@@ -1283,7 +1290,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rb2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rb2.STL" />
       </geometry>
       <material
         name="">
@@ -1297,7 +1304,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rb2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rb2.STL" />
       </geometry>
     </collision>
   </link>
@@ -1341,7 +1348,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rpb2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rpb2.STL" />
       </geometry>
       <material
         name="">
@@ -1355,7 +1362,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rpb2.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rpb2.STL" />
       </geometry>
     </collision>
   </link>
@@ -1394,7 +1401,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rb3.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rb3.STL" />
       </geometry>
       <material
         name="">
@@ -1408,7 +1415,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rb3.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rb3.STL" />
       </geometry>
     </collision>
   </link>
@@ -1452,7 +1459,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rbfoot.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rbfoot.STL" />
       </geometry>
       <material
         name="">
@@ -1466,7 +1473,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://mini_pupper_description/meshes/rbfoot.STL" />
+          filename="file://$(find mini_pupper_description)/meshes/rbfoot.STL" />
       </geometry>
     </collision>
   </link>
@@ -1483,128 +1490,71 @@
     <axis
       xyz="0 0 0" />
   </joint>
-  
-  <transmission name="base_lf1_trans">
-    <type>transmission_interface/SimpleTransmission</type>
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
     <joint name="base_lf1">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="base_lf1_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="lf1_lf2_trans">
-    <type>transmission_interface/SimpleTransmission</type>
     <joint name="lf1_lf2">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="lf1_lf2_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="lf2_lf3_trans">
-    <type>transmission_interface/SimpleTransmission</type>
     <joint name="lf2_lf3">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="lf2_lf3_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="base_rf1_trans">
-    <type>transmission_interface/SimpleTransmission</type>
     <joint name="base_rf1">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="base_rf1_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="rf1_rf2_trans">
-    <type>transmission_interface/SimpleTransmission</type>
     <joint name="rf1_rf2">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="rf1_rf2_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="rf2_rf3_trans">
-    <type>transmission_interface/SimpleTransmission</type>
     <joint name="rf2_rf3">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="rf2_rf3_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="base_lb1_trans">
-    <type>transmission_interface/SimpleTransmission</type>
     <joint name="base_lb1">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="base_lb1_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="lb1_lb2_trans">
-    <type>transmission_interface/SimpleTransmission</type>
     <joint name="lb1_lb2">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="lb1_lb2_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="lb2_lb3_trans">
-    <type>transmission_interface/SimpleTransmission</type>
     <joint name="lb2_lb3">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="lb2_lb3_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="base_rb1_trans">
-    <type>transmission_interface/SimpleTransmission</type>
     <joint name="base_rb1">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="base_rb1_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="rb1_rb2_trans">
-    <type>transmission_interface/SimpleTransmission</type>
     <joint name="rb1_rb2">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="rb1_rb2_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="rb2_rb3_trans">
-    <type>transmission_interface/SimpleTransmission</type>
     <joint name="rb2_rb3">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <command_interface name="effort"/> 
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
     </joint>
-    <actuator name="rb2_rb3_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  
+  </ros2_control>
   <!-- coloring Gazebo model -->
   <gazebo reference="base_link">
     <material>Gazebo/FlatBlack</material>
@@ -1820,20 +1770,21 @@
   
   <gazebo>
     <plugin filename="libgazebo_ros_p3d.so" name="p3d_base_controller">
-      <alwaysOn>true</alwaysOn>
-      <updateRate>10.0</updateRate>
-      <bodyName>base_link</bodyName>
-      <topicName>odom/ground_truth</topicName>
-      <gaussianNoise>0.01</gaussianNoise>
-      <frameName>world</frameName>
-      <xyzOffsets>0 0 0</xyzOffsets>
-      <rpyOffsets>0 0 0</rpyOffsets>
+      <ros>
+          <argument>odom:=odom/ground_truth</argument>
+      </ros>
+      <body_name>base_link</body_name>
+      <frame_name>world</frame_name>
+      <update_rate>10.0</update_rate>
+      <xyz_offset>0 0 0</xyz_offset>
+      <rpy_offset>0 0 0</rpy_offset>
+      <gaussian_noise>0.01</gaussian_noise>
     </plugin>
   </gazebo>
   
   <gazebo>
-    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <legacyModeNS>true</legacyModeNS>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(find mini_pupper_config)/config/ros_control/ros_control.yaml</parameters>
     </plugin>
   </gazebo>
   

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-License: Apache 2.0. See LICENSE file in root directory.
+License:Apache 2.0. See LICENSE file in root directory.
 Copyright(c) 2017 Intel Corporation. All Rights Reserved
 
 This is the URDF model for the Intel RealSense 415 camera, in it's
@@ -23,7 +23,7 @@ aluminum peripherial evaluation case.
         <origin xyz="0. -0.022425 0." rpy="0 0 ${M_PI/2}"/>
         <geometry>
           <!--box size="0.044850 0.008 0.0185" /-->
-          <mesh filename="package://mini_pupper_description/meshes/plug.stl" />
+          <mesh filename="file://$(find mini_pupper_description)/meshes/plug.stl" />
         </geometry>
         <material name="plastic"/>
       </visual>
@@ -31,7 +31,7 @@ aluminum peripherial evaluation case.
         <origin xyz="0. -0.022425 0." rpy="0 0 ${M_PI/2}"/>
         <geometry>
           <!--box size="0.044850 0.008 0.0185" /-->
-          <mesh filename="package://mini_pupper_description/meshes/plug_collision.stl" />
+          <mesh filename="file://$(find mini_pupper_description)/meshes/plug_collision.stl" />
         </geometry>
       </collision>
     </link>
